@@ -19,9 +19,12 @@ public class ConversionController {
         try {
             // Prepare the request
             ConversionRequest request = new ConversionRequest();
-            request.setValue(value);
+            request.setValor(value);
             request.setFromUnit(fromUnit);
             request.setToUnit(toUnit);
+            System.out.println(value);
+            System.out.println(toUnit);
+            System.out.println(fromUnit);
             
             // Make the request to the web service
             ConversionResponse response = client.convertPressure(request, ConversionResponse.class);
@@ -30,7 +33,7 @@ public class ConversionController {
             if (response == null) {
                 throw new Exception("No se recibió respuesta del servicio de conversión");
             }
-            
+            System.out.println(response.getResultado());
             return response;
             
         } catch (javax.ws.rs.ClientErrorException e) {
@@ -61,6 +64,6 @@ public class ConversionController {
         
         // Realizar conversión
         ConversionResponse response = convertPressure(value, fromUnit, toUnit);
-        return response.getResult();
+        return response.getResultado();
     }
 }

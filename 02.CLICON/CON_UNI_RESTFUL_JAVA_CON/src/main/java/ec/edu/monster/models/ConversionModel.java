@@ -9,17 +9,37 @@ package ec.edu.monster.models;
  * @author danie
  */
 public class ConversionModel {
-    public static class ConversionRequest {
-        private double value;
-        private String fromUnit;
+    
+     public static class ConversionResponse {
+        private double resultado;
         private String toUnit;
+        private String fromUnit;
+        private double valor;
 
-        public double getValue() {
-            return value;
+        public ConversionResponse(double valorConvertido, String unidadDestino, String unidadInicial, double valorOriginal) {
+            this.resultado = valorConvertido;
+            this.toUnit = unidadDestino;
+            this.valor = valorOriginal;
+            this.fromUnit = unidadInicial;
         }
 
-        public void setValue(double value) {
-            this.value = value;
+        public ConversionResponse() {
+        }
+
+        public double getResultado() {
+            return resultado;
+        }
+
+        public void setResultado(double resultado) {
+            this.resultado = resultado;
+        }
+
+        public String getToUnit() {
+            return toUnit;
+        }
+
+        public void setToUnit(String toUnit) {
+            this.toUnit = toUnit;
         }
 
         public String getFromUnit() {
@@ -30,26 +50,36 @@ public class ConversionModel {
             this.fromUnit = fromUnit;
         }
 
-        public String getToUnit() {
-            return toUnit;
+        public double getValor() {
+            return valor;
         }
 
-        public void setToUnit(String toUnit) {
-            this.toUnit = toUnit;
+        public void setValor(double valor) {
+            this.valor = valor;
         }
-    }
-
-    public static class ConversionResponse {
-        private double result;
+     }
+       public static class ConversionRequest {
+        private double valor;
         private String fromUnit;
         private String toUnit;
 
-        public double getResult() {
-            return result;
+        public ConversionRequest() {
         }
 
-        public void setResult(double result) {
-            this.result = result;
+        
+        public ConversionRequest(double valor, String fromUnit, String toUnit) {
+            this.valor = valor;
+            this.fromUnit = fromUnit;
+            this.toUnit = toUnit;
+        }
+        
+        
+        public double getValor() {
+            return valor;
+        }
+
+        public void setValor(double valor) {
+            this.valor = valor;
         }
 
         public String getFromUnit() {

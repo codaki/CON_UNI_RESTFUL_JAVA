@@ -89,34 +89,70 @@ public class CON_UNI_RESTFUL_JAVA_CON {
     }
 
     private static void realizarConversion() {
-        try {
-            System.out.println("\n=== Conversión de Presión ===");
-            System.out.println("Unidades disponibles: pascal, bar, psi, atm, torr");
-            
-            System.out.print("Ingrese el valor a convertir: ");
-            double valor = Double.parseDouble(scanner.nextLine());
-            
-            System.out.print("Ingrese la unidad de origen: ");
-            String unidadOrigen = scanner.nextLine().toLowerCase();
-            
-            System.out.print("Ingrese la unidad de destino: ");
-            String unidadDestino = scanner.nextLine().toLowerCase();
+    try {
+        System.out.println("\n=== Conversión de Presión ===");
+        System.out.println("Seleccione las unidades disponibles:");
+        System.out.println("1. Pascal (Pa)");
+        System.out.println("2. Bar (bar)");
+        System.out.println("3. Psi (psi)");
+        System.out.println("4. Atmósfera (atm)");
+        System.out.println("5. Torr (torr)");
 
-            if (!conversionController.isValidPressureUnit(unidadOrigen) || 
-                !conversionController.isValidPressureUnit(unidadDestino)) {
-                System.out.println("Error: Unidades no válidas");
-                return;
-            }
+        // Ingresar el valor a convertir
+        System.out.print("Ingrese el valor a convertir: ");
+        double valor = Double.parseDouble(scanner.nextLine());
 
-            double resultado = conversionController.convertPressureValue(valor, unidadOrigen, unidadDestino);
-            System.out.printf("Resultado: %.4f %s = %.4f %s%n", 
-                valor, unidadOrigen, resultado, unidadDestino);
-
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Por favor ingrese un valor numérico válido.");
-        } catch (Exception e) {
-            System.out.println("Error durante la conversión: " + e.getMessage());
+        // Seleccionar la unidad de origen
+        System.out.print("Seleccione la unidad de origen (1-5): ");
+        int opcionOrigen = Integer.parseInt(scanner.nextLine());
+        String unidadOrigen = obtenerUnidad(opcionOrigen);
+        if (unidadOrigen == null) {
+            System.out.println("Opción no válida para la unidad de origen.");
+            return;
         }
+
+        // Seleccionar la unidad de destino
+        System.out.print("Seleccione la unidad de destino (1-5): ");
+        int opcionDestino = Integer.parseInt(scanner.nextLine());
+        String unidadDestino = obtenerUnidad(opcionDestino);
+        if (unidadDestino == null) {
+            System.out.println("Opción no válida para la unidad de destino.");
+            return;
+        }
+
+        // Validar y realizar la conversión
+        if (!conversionController.isValidPressureUnit(unidadOrigen) || 
+            !conversionController.isValidPressureUnit(unidadDestino)) {
+            System.out.println("Error: Unidades no válidas");
+            return;
+        }
+
+        double resultado = conversionController.convertPressureValue(valor, unidadOrigen, unidadDestino);
+        System.out.printf("Resultado: %.4f %s = %.4f %s%n", 
+            valor, unidadOrigen, resultado, unidadDestino);
+
+    } catch (NumberFormatException e) {
+        System.out.println("Error: Por favor ingrese un valor numérico válido.");
+    } catch (Exception e) {
+        System.out.println("Error durante la conversión: " + e.getMessage());
     }
+}
+
+/**
+ * Obtiene la unidad correspondiente a la opción seleccionada.
+ * @param opcion número de la opción seleccionada
+ * @return el nombre de la unidad o null si la opción no es válida
+ */
+private static String obtenerUnidad(int opcion) {
+    switch (opcion) {
+        case 1: return "pascal";
+        case 2: return "bar";
+        case 3: return "psi";
+        case 4: return "atm";
+        case 5: return "torr";
+        default: return null;
+    }
+}
+
 }
 
