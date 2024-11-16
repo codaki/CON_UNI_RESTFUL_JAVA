@@ -1,0 +1,122 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package ec.edu.monster.con_uni_restful_java_con;
+
+import ec.edu.monster.controllers.ConversionController;
+import ec.edu.monster.controllers.LoginController;
+import java.util.Scanner;
+
+/**
+ *
+ * @author danie
+ */
+public class CON_UNI_RESTFUL_JAVA_CON {
+
+  
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final LoginController loginController = new LoginController();
+    private static final ConversionController conversionController = new ConversionController();
+    private static boolean isLoggedIn = false;
+
+    public static void main(String[] args) {
+        System.out.println("=== Sistema de Conversión de Unidades ===");
+        
+        while (true) {
+            if (!isLoggedIn) {
+                if (mostrarMenuLogin()) {
+                    mostrarMenuPrincipal();
+                }
+            } else {
+                mostrarMenuPrincipal();
+            }
+        }
+    }
+
+    private static boolean mostrarMenuLogin() {
+        System.out.println("\n=== Login ===");
+        System.out.print("Usuario: ");
+        String username = scanner.nextLine();
+        System.out.print("Contraseña: ");
+        String password = scanner.nextLine();
+
+        try {
+            isLoggedIn = loginController.autenticar(username, password);
+            if (isLoggedIn) {
+                System.out.println("¡Login exitoso!");
+                return true;
+            } else {
+                System.out.println("Credenciales incorrectas. Por favor, intente nuevamente.");
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error durante el login: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private static void mostrarMenuPrincipal() {
+        while (isLoggedIn) {
+            try {
+                System.out.println("\n=== Menú Principal ===");
+                System.out.println("1. Realizar conversión de presión");
+                System.out.println("2. Cerrar sesión");
+                System.out.println("3. Salir");
+                System.out.print("Seleccione una opción: ");
+
+                String opcion = scanner.nextLine();
+
+                switch (opcion) {
+                    case "1":
+                        realizarConversion();
+                        break;
+                    case "2":
+                        isLoggedIn = false;
+                        System.out.println("Sesión cerrada exitosamente.");
+                        return;
+                    case "3":
+                        System.out.println("¡Gracias por usar el sistema!");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Por favor, intente nuevamente.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    }
+
+    private static void realizarConversion() {
+        try {
+            System.out.println("\n=== Conversión de Presión ===");
+            System.out.println("Unidades disponibles: pascal, bar, psi, atm, torr");
+            
+            System.out.print("Ingrese el valor a convertir: ");
+            double valor = Double.parseDouble(scanner.nextLine());
+            
+            System.out.print("Ingrese la unidad de origen: ");
+            String unidadOrigen = scanner.nextLine().toLowerCase();
+            
+            System.out.print("Ingrese la unidad de destino: ");
+            String unidadDestino = scanner.nextLine().toLowerCase();
+
+            if (!conversionController.isValidPressureUnit(unidadOrigen) || 
+                !conversionController.isValidPressureUnit(unidadDestino)) {
+                System.out.println("Error: Unidades no válidas");
+                return;
+            }
+
+            double resultado = conversionController.convertPressureValue(valor, unidadOrigen, unidadDestino);
+            System.out.printf("Resultado: %.4f %s = %.4f %s%n", 
+                valor, unidadOrigen, resultado, unidadDestino);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Por favor ingrese un valor numérico válido.");
+        } catch (Exception e) {
+            System.out.println("Error durante la conversión: " + e.getMessage());
+        }
+    }
+}
+

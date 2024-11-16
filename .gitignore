@@ -22,3 +22,6 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/02.CLICON/CON_UNI_RESTUL_JAVA_CON/target/
+/02.CLICON/CON_UNI_RESTFUL_JAVA_CON/target/
+/02.CLICON/CON_UNI_RESFUL_JAVA_CON/target/
