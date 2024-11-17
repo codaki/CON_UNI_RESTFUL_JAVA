@@ -117,11 +117,11 @@ private static String hashPassword(String input) throws NoSuchAlgorithmException
     try {
         System.out.println("\n=== Conversión de Presión ===");
         System.out.println("Seleccione las unidades disponibles:");
-        System.out.println("1. Pascal (Pa)");
+        System.out.println("1. Pascal (pa)");
         System.out.println("2. Bar (bar)");
         System.out.println("3. Psi (psi)");
         System.out.println("4. Atmósfera (atm)");
-        System.out.println("5. Torr (torr)");
+        System.out.println("5. Milimetros de mercurio (mmhg)");
 
         // Ingresar el valor a convertir
         System.out.print("Ingrese el valor a convertir: ");
@@ -170,11 +170,11 @@ private static String hashPassword(String input) throws NoSuchAlgorithmException
  */
 private static String obtenerUnidad(int opcion) {
     switch (opcion) {
-        case 1: return "pascal";
+        case 1: return "pa";
         case 2: return "bar";
         case 3: return "psi";
         case 4: return "atm";
-        case 5: return "torr";
+        case 5: return "mmhg";
         default: return null;
     }
 }

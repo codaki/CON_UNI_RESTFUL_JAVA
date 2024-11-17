@@ -44,7 +44,7 @@ public class ConversionController {
     
     // Método de utilidad para validar unidades de presión
     public boolean isValidPressureUnit(String unit) {
-        String[] validUnits = {"pascal", "bar", "psi", "atm", "torr"};
+        String[] validUnits = {"pa", "bar", "psi", "atm", "mmhg"};
         for (String validUnit : validUnits) {
             if (validUnit.equalsIgnoreCase(unit)) {
                 return true;
