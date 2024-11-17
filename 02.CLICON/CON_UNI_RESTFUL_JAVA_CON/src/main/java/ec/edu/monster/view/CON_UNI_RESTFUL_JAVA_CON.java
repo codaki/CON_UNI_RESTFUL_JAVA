@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package ec.edu.monster.con_uni_restful_java_con;
+package ec.edu.monster.view;
 
 import ec.edu.monster.controllers.ConversionController;
 import ec.edu.monster.controllers.LoginController;
 import java.util.Scanner;
+import java.security.*;
 
 /**
  *
@@ -33,6 +34,29 @@ public class CON_UNI_RESTFUL_JAVA_CON {
             }
         }
     }
+/**
+ * Hashes the input string using SHA-256.
+ *
+ * @param input the string to hash
+ * @return the hashed string in hexadecimal format
+ * @throws NoSuchAlgorithmException if the SHA-256 algorithm is not available
+ */
+private static String hashPassword(String input) throws NoSuchAlgorithmException {
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    byte[] hashBytes = digest.digest(input.getBytes());
+    StringBuilder hexString = new StringBuilder();
+
+    for (byte b : hashBytes) {
+        String hex = Integer.toHexString(0xff & b);
+        if (hex.length() == 1) {
+            hexString.append('0');
+        }
+        hexString.append(hex);
+    }
+
+    return hexString.toString();
+}
+
 
     private static boolean mostrarMenuLogin() {
         System.out.println("\n=== Login ===");
@@ -42,7 +66,8 @@ public class CON_UNI_RESTFUL_JAVA_CON {
         String password = scanner.nextLine();
 
         try {
-            isLoggedIn = loginController.autenticar(username, password);
+              String hashedPassword = hashPassword(password);
+            isLoggedIn = loginController.autenticar(username, hashedPassword);
             if (isLoggedIn) {
                 System.out.println("¡Login exitoso!");
                 return true;

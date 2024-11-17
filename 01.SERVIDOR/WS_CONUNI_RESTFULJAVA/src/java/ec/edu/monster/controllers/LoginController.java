@@ -17,7 +17,7 @@ public class LoginController {
     public ConversionResponseL login(ConversionRequestL conversionRequest) {
         String username = conversionRequest.getUsername();
         String password = conversionRequest.getPassword();
-        if(username.equals("monster") && password.equals( "monster")){
+        if(username.equals("monster") && password.equals( "774e993500f4027acfd72b7a7ee564b76ae43cf7c4c943ed0e0f364cca16b6ec")){
             ConversionResponseL resultado = new ConversionResponseL(username,password);
             return resultado;
         }else{
