@@ -25,7 +25,7 @@ public class LoginResource {
     @Context
     private UriInfo context;
 
-    /**
+    /** 
      * Creates a new instance of LoginResource
      */
     public LoginResource() {
