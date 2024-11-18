@@ -42,6 +42,10 @@ public class LoginController {
             }
         });
     }
+
+    public LoginController() {
+    }
+    
     
     public boolean autenticar(String username, String password) throws Exception {
         WSClientLogin client = new WSClientLogin();
@@ -66,7 +70,8 @@ public class LoginController {
             if (response == null) {
                 throw new Exception("No se recibió respuesta del servidor");
             }
-
+                System.out.println(response.getUsername());
+                System.out.println(response.getPassword());
             // Verificar autenticación exitosa
             return response.getUsername() != null && !response.getUsername().equals("null");
 

@@ -4,6 +4,7 @@
  */
 package ec.edu.monster.view;
 
+import ec.edu.monster.controller.LoginController;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.JButton;
@@ -11,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.security.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -24,6 +27,7 @@ public class LoginView extends javax.swing.JFrame {
      */
     public LoginView() {
         initComponents();
+       
     }
 
     /**
@@ -187,7 +191,13 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_lblUsernameActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        String username = lblUsername.getText();
+         LoginController controlador = new LoginController();
+        try {
+            boolean autenticar = controlador.autenticar(username, this.hashPassword());
+        } catch (Exception ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

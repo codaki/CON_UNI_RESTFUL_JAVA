@@ -26,6 +26,41 @@
             <artifactId>jersey-media-moxy</artifactId>
             <version>2.35</version>
         </dependency>
+         <!-- Jersey Media MOXy -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>2.35</version>
+        </dependency>
+        
+        <!-- Añadir estas nuevas dependencias -->
+        <!-- Jersey Injection Manager -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>2.35</version>
+        </dependency>
+        
+        <!-- Jersey Common -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-common</artifactId>
+            <version>2.35</version>
+        </dependency>
+        
+        <!-- Jersey Media JSON Jackson (para mejor soporte JSON) -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.35</version>
+        </dependency>
+        
+        <!-- JAX-B API -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
