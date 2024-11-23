@@ -4,11 +4,6 @@
  */
 package ec.edu.monster.view;
 
-import ec.edu.monster.controller.ConversionController;
-import java.text.DecimalFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author JOSE
@@ -40,7 +35,7 @@ public class ConversionView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         cboDestino = new javax.swing.JComboBox<>();
         cboOrigen = new javax.swing.JComboBox<>();
-        txtCantidad = new javax.swing.JTextField();
+        lblCantidad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -80,9 +75,9 @@ public class ConversionView extends javax.swing.JFrame {
             }
         });
 
-        txtCantidad.addActionListener(new java.awt.event.ActionListener() {
+        lblCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantidadActionPerformed(evt);
+                lblCantidadActionPerformed(evt);
             }
         });
 
@@ -135,7 +130,7 @@ public class ConversionView extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(16, 16, 16)
                                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(txtCantidad)
+                                        .addComponent(lblCantidad)
                                         .addComponent(btnConvertir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cboOrigen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cboDestino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
@@ -157,7 +152,7 @@ public class ConversionView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,9 +188,9 @@ public class ConversionView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
+    private void lblCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblCantidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidadActionPerformed
+    }//GEN-LAST:event_lblCantidadActionPerformed
 
     private void cboOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboOrigenActionPerformed
         // TODO add your handling code here:
@@ -206,48 +201,8 @@ public class ConversionView extends javax.swing.JFrame {
     }//GEN-LAST:event_cboDestinoActionPerformed
 
     private void btnConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirActionPerformed
-                                 
-    double valor = Double.parseDouble(txtCantidad.getText());
-    // Convertir las unidades del ComboBox a su abreviatura
-    String origen = interpretarUnidad(cboOrigen.getSelectedItem().toString());
-    String destino = interpretarUnidad(cboDestino.getSelectedItem().toString());
-
-    // Validar que las unidades no sean nulas
-    if (origen == null || destino == null) {
-        lblResultado.setText("Error: Seleccione unidades válidas.");
-        return;
-    }
-
-    ConversionController controlador = new ConversionController();
-    try {
-        double response = controlador.convertPressureValue(valor, origen, destino);
-        // Formatear el resultado a dos decimales
-        DecimalFormat df = new DecimalFormat("#.##");
-        String resultadoFormateado = df.format(response);
-        lblResultado.setText("El resultado es " + resultadoFormateado + " " + destino);
-    } catch (Exception ex) {
-        Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
-        lblResultado.setText("Error en la conversión.");
-    }
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnConvertirActionPerformed
-
-    private String interpretarUnidad(String unidad) {
-    switch (unidad.toLowerCase()) {
-        case "pascal (pa)":
-            return "pa";
-        case "bar (bar)":
-            return "bar";
-        case "psi (psi)":
-            return "psi";
-        case "atmósfera (atm)":
-            return "atm";
-        case "torr (torr)":
-            return "mmhg";
-        default:
-            return null;
-    }
-}
 
     /**
      * @param args the command line arguments
@@ -300,7 +255,7 @@ public class ConversionView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JTextField lblCantidad;
     private javax.swing.JLabel lblResultado;
-    private javax.swing.JTextField txtCantidad;
     // End of variables declaration//GEN-END:variables
 }

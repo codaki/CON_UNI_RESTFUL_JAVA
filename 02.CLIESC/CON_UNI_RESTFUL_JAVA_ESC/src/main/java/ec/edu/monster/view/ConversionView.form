@@ -113,7 +113,7 @@
                                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                               <Component id="jLabel7" min="-2" pref="199" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="txtCantidad" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCantidad" alignment="0" max="32767" attributes="0"/>
                                           <Component id="btnConvertir" max="32767" attributes="0"/>
                                           <Component id="cboOrigen" max="32767" attributes="0"/>
                                           <Component id="cboDestino" max="32767" attributes="0"/>
@@ -145,7 +145,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtCantidad" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblCantidad" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -205,9 +205,9 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCantidad">
+        <Component class="javax.swing.JTextField" name="lblCantidad">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCantidadActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblCantidadActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

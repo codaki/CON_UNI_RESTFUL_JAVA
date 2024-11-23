@@ -192,7 +192,7 @@ public class LoginView extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String username = lblUsername.getText();
-        LoginController controlador = new LoginController();
+         LoginController controlador = new LoginController();
         try {
             boolean autenticar = controlador.autenticar(username, this.hashPassword());
         } catch (Exception ex) {
