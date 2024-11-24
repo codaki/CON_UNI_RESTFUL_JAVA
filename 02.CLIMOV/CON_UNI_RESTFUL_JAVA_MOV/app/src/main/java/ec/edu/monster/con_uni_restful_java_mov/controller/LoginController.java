@@ -2,6 +2,7 @@ package ec.edu.monster.con_uni_restful_java_mov.controller;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import ec.edu.monster.con_uni_restful_java_mov.models.LoginModel;
 import ec.edu.monster.con_uni_restful_java_mov.service.ApiService;
@@ -10,8 +11,8 @@ import ec.edu.monster.con_uni_restful_java_mov.service.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-public class LoginController {
 
+public class LoginController {
 
     public void autenticar(String username, String password, Context context) {
         ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
@@ -24,27 +25,28 @@ public class LoginController {
                 if (response.isSuccessful() && response.body() != null) {
                     LoginModel.ConversionResponseL loginResponse = response.body();
                     if (!"null".equals(loginResponse.getUsername())) {
-                        // Login successful
-                        Log.d("Login", "Welcome, " + loginResponse.getUsername());
-
-                        // Navigate to ConversionActivity
+                        // Inicio de sesión exitoso
+                        Log.d("Login", "Bienvenido, " + loginResponse.getUsername());
+                        Toast.makeText(context, "Bienvenido, " + loginResponse.getUsername(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, ConversionActivity.class);
                         context.startActivity(intent);
                     } else {
-                        // Invalid credentials
-                        Log.d("Login", "Invalid credentials");
+                        // Credenciales incorrectas
+                        Log.d("Login", "Credenciales incorrectas");
+                        Toast.makeText(context, "Credenciales incorrectas. Inténtelo de nuevo.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Log.d("Login", "Response unsuccessful or empty");
+                    // Respuesta vacía o no exitosa
+                    Log.d("Login", "Respuesta no exitosa o vacía");
+                    Toast.makeText(context, "Error al iniciar sesión. Inténtelo más tarde.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginModel.ConversionResponseL> call, Throwable t) {
                 Log.e("Login", "Error: " + t.getMessage());
+                Toast.makeText(context, "Error de conexión. Verifique su red.", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-
 }

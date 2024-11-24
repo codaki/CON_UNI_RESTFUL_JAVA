@@ -6,38 +6,52 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="@drawable/fondo2">
 
+    <!-- Título del Login -->
     <TextView
         android:id="@+id/tvLoginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="#333333"
         android:layout_marginBottom="24dp" />
 
+    <!-- Campo de Username -->
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="text"
-        android:layout_marginBottom="16dp" />
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="#333333"
+        android:textColorHint="#888888" />
 
+    <!-- Campo de Password -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp" />
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="#333333"
+        android:textColorHint="#888888" />
 
+    <!-- Botón de Login -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:backgroundTint="@color/black"
-        android:textColor="@android:color/white" />
+        android:background="@drawable/button_background"
+        android:textColor="#ffffff"
+        android:padding="12dp" />
 </LinearLayout>

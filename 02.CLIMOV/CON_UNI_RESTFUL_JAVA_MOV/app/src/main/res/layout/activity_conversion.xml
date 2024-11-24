@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/fondo2"
     android:padding="16dp">
 
     <TextView
@@ -11,9 +13,12 @@
         android:layout_height="wrap_content"
         android:text="Conversión de Presión"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="28sp"
+
+
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp" />
+        android:paddingBottom="16dp"
+        android:textColor="#0D5B8F" />
 
     <EditText
         android:id="@+id/etValue"
@@ -21,27 +26,34 @@
         android:layout_height="wrap_content"
         android:hint="Ingrese el valor"
         android:inputType="numberDecimal"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:background="@android:drawable/editbox_background"
+        android:textColor="#00796b"
+        android:layout_marginTop="8dp" />
 
     <Spinner
         android:id="@+id/spnFromUnit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:background="#ffffff" />
 
     <Spinner
         android:id="@+id/spnToUnit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:background="#ffffff" />
 
     <Button
         android:id="@+id/btnConvert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Convertir"
+        android:textColor="#ffffff"
+        android:background="#00796b"
         android:layout_marginTop="16dp" />
 
     <TextView
@@ -52,6 +64,7 @@
         android:textSize="16sp"
         android:layout_marginTop="16dp"
         android:padding="8dp"
-        android:background="#f0f0f0"
+        android:background="#ffffff"
+        android:textColor="#00796b"
         android:gravity="center" />
 </LinearLayout>

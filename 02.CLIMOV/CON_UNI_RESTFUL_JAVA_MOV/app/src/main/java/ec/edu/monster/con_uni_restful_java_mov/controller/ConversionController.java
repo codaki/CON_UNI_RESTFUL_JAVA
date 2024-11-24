@@ -10,7 +10,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ConversionController {
-    public void convertPressure(double value, String fromUnit, String toUnit) {
+
+    public interface ConversionCallback {
+        void onSuccess(double result, String toUnit);
+        void onFailure(String errorMessage);
+    }
+
+    public void convertPressure(double value, String fromUnit, String toUnit, ConversionCallback callback) {
         ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
         ConversionModel.ConversionRequest conversionRequest = new ConversionModel.ConversionRequest(value, fromUnit, toUnit);
 
@@ -20,15 +26,17 @@ public class ConversionController {
             public void onResponse(Call<ConversionModel.ConversionResponse> call, Response<ConversionModel.ConversionResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     ConversionModel.ConversionResponse conversionResponse = response.body();
-                    Log.d("Conversion", "Result: " + conversionResponse.getResultado());
+                    callback.onSuccess(conversionResponse.getResultado(), conversionResponse.getToUnit());
+                } else {
+                    callback.onFailure("Error en la respuesta del servidor");
                 }
             }
 
             @Override
             public void onFailure(Call<ConversionModel.ConversionResponse> call, Throwable t) {
-                Log.e("Conversion", "Error: " + t.getMessage());
+                callback.onFailure(t.getMessage());
             }
         });
     }
-
 }
+
