@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion - Monsters Inc.</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body class="conversion-page">
+    <div class="container">
+        <h1>Conversión de Unidades</h1>
+        <p>Grupo 5</p>
+        <form action="/convert" method="post" class="conversion-form">
+            <input type="number" name="value" placeholder="Enter value" required>
+            <select name="unit_from" required>
+                <option value="psi">PSI</option>
+                <option value="bar">Bar</option>
+                <option value="atm">ATM</option>
+                <option value="pa">Pascal</option>
+                <option value="mmhg">mmHg</option>
+            </select>
+            <select name="unit_to" required>
+                <option value="psi">PSI</option>
+                <option value="bar">Bar</option>
+                <option value="atm">ATM</option>
+                <option value="pa">Pascal</option>
+                <option value="mmhg">mmHg</option>
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <img src="/static/images/boo.png" alt="Door" class="hero-img">
+    </div>
+</body>
+
+</html>

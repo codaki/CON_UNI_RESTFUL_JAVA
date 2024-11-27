@@ -1,0 +1,8 @@
+en la carpeta seguir los comandos
+1) python -m venv venv
+2) .\venv\Scripts\Activate
+3) pip install flask requests
+
+
+Ejecutar: python app.py
+Nota: para ejecutar debe estar activado el entorno con: .\venv\Scripts\Activate
