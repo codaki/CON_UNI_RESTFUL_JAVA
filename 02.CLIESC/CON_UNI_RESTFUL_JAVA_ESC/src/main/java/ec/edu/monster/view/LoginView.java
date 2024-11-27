@@ -66,7 +66,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel5.setText("Para acceder, primero necesita identificarse");
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
-        jLabel3.setText("usuario");
+        jLabel3.setText("Usuario");
 
         lblUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,12 +75,12 @@ public class LoginView extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
-        jLabel4.setText("contraseña");
+        jLabel4.setText("Contraseña");
 
         btnLogin.setBackground(new java.awt.Color(0, 51, 51));
         btnLogin.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Iniciar Sesion");
+        btnLogin.setText("Iniciar Sesión");
         btnLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

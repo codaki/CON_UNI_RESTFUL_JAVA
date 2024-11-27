@@ -179,7 +179,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="usuario"/>
+                <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="lblUsername">
@@ -192,7 +192,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="contrase&#xf1;a"/>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="lblPassword">
@@ -208,7 +208,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
+                <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Events>
