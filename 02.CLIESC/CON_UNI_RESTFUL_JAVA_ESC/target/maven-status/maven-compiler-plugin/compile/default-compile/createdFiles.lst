@@ -9,6 +9,7 @@ ec\edu\monster\model\ConversionModel$ConversionResponse.class
 ec\edu\monster\view\LoginView$3.class
 ec\edu\monster\view\ConversionView$3.class
 ec\edu\monster\view\ConversionView$5.class
+ec\edu\monster\controller\ConversionController.class
 ec\edu\monster\CON_UNI_RESTFUL_JAVA_ESC.class
 ec\edu\monster\model\LoginModel.class
 ec\edu\monster\model\ConversionModel.class

@@ -25,7 +25,7 @@ public class WSClientConversion {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/WS_CONUNI_RESTFULJAVA/webresources";
+    private static final String BASE_URI = "http://10.40.18.31:8080/WS_CONUNI_RESTFULJAVA/webresources";
 
     public WSClientConversion() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
