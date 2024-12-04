@@ -17,22 +17,19 @@ def login_page():
 @app.route('/login', methods=['POST'])
 def login_user():
     try:
-        # Capturar los datos del formulario
         username = request.form['username']
         password = request.form['password']
 
-        # Hashear la contraseña utilizando la utilidad HashUtil
         hashed_password = HashUtil.hash_password(password)
 
-        # Llamar al controlador para validar las credenciales
         is_authenticated = login_controller.login(username, hashed_password)
 
         if is_authenticated:
             flash(f'¡Bienvenido, {username}!')
-            return redirect(url_for('conversion_page'))  # Redirigir a la página de conversiones
+            return redirect(url_for('conversion_page'))  
         else:
             flash('Credenciales incorrectas. Intenta nuevamente.')
-            return redirect(url_for('login_page'))  # Redirigir a la página de login
+            return redirect(url_for('login_page'))  
     except Exception as e:
         flash(f'Error: {str(e)}')
         return redirect(url_for('login_page'))
@@ -45,16 +42,13 @@ def conversion_page():
 @app.route('/convert', methods=['POST'])
 def convert_units():
     try:
-        # Capturar los datos del formulario
         value = float(request.form['value'])
         unit_from = request.form['unit_from']
         unit_to = request.form['unit_to']
 
-        # Llamar al controlador para realizar la conversión
         result = conversion_controller.convert(value, unit_from, unit_to)
 
-        # Mostrar el resultado al usuario
-        flash(f'Resultado: {result["valor"]} {result["from_unit"]} = {result["resultado"]} {result["to_unit"]}')
+        flash(f'Valor Convertido: {result["resultado"]} {result["to_unit"]}')
     except Exception as e:
         flash(f'Error: {str(e)}')
 

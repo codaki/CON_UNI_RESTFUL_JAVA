@@ -201,9 +201,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="messageLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="."/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnLogin">
               <Properties>

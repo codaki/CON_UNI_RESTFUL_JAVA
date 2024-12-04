@@ -9,37 +9,42 @@
 </head>
 
 <body class="conversion-page">
-    <div class="container">
-        <h1>Conversión de Unidades</h1>
-        <p>Grupo 5</p>
+    <img src="/static/images/sullymobile.png" alt="Door" class="sulley-img">
+    <div class="container-conv">
+        <h1 class="titulo-verde">Conversor de Unidades de Presión -</h1>
+        <h1 class="titulo-verde">Grupo 5</h1>
         <form action="/convert" method="post" class="conversion-form">
-            <input type="number" name="value" placeholder="Enter value" required>
+            <p class="clase-p">Valor</p>
+            <input type="number" name="value" required>
+            <p class="clase-p">Unidad de Origen</p>
             <select name="unit_from" required>
-                <option value="psi">PSI</option>
-                <option value="bar">Bar</option>
-                <option value="atm">ATM</option>
-                <option value="pa">Pascal</option>
-                <option value="mmhg">mmHg</option>
+                <option value="psi">Libras por Pulgada Cuadrada (PSI)</option>
+                <option value="bar">BAR</option>
+                <option value="atm">Atmósferas (ATM)</option>
+                <option value="pa">Pascal (PA)</option>
+                <option value="mmhg">Milímetros de Mercurio (mmHg)</option>
             </select>
+            <p class="clase-p">Unidad de Destino</p>
             <select name="unit_to" required>
-                <option value="psi">PSI</option>
-                <option value="bar">Bar</option>
-                <option value="atm">ATM</option>
-                <option value="pa">Pascal</option>
-                <option value="mmhg">mmHg</option>
+                <option value="psi">Libras por Pulgada Cuadrada (PSI)</option>
+                <option value="bar">BAR</option>
+                <option value="atm">Atmósferas (ATM)</option>
+                <option value="pa">Pascal (PA)</option>
+                <option value="mmhg">Milímetros de Mercurio (mmHg)</option>
             </select>
-            <button type="submit">Convert</button>
+            <button type="submit" class="btn-morado">Convertir</button>
         </form>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <ul>
+        <p class="clase-p centrado">
             {% for message in messages %}
-            <li>{{ message }}</li>
+            {{ message }}{% if not loop.last %}<br>{% endif %}
             {% endfor %}
-        </ul>
+        </p>
         {% endif %}
         {% endwith %}
-        <img src="/static/images/boo.png" alt="Door" class="hero-img">
+
+
     </div>
 </body>
 

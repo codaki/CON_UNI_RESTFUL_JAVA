@@ -127,7 +127,6 @@ public class ConversionView extends javax.swing.JFrame {
 
         lblResultado.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         lblResultado.setForeground(new java.awt.Color(0, 102, 102));
-        lblResultado.setText(".");
 
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 102));

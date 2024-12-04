@@ -31,12 +31,6 @@ public class LoginView extends javax.swing.JFrame {
         initComponents();
        
     }
-    @Override
-    public void paint(Graphics g){
-        ImageIcon imagen = new ImageIcon(getClass().getResource("images/fondo2.png"));
-        g.drawImage(imagen.getImage(),0,0,getWidth(), getHeight(), this);
-        
-        super.paint(g);    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,8 +84,6 @@ public class LoginView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("Usuario");
-
-        messageLabel.setText(".");
 
         btnLogin.setBackground(new java.awt.Color(51, 153, 255));
         btnLogin.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
